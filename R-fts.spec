@@ -4,7 +4,7 @@
 #
 Name     : R-fts
 Version  : 0.9.9
-Release  : 2
+Release  : 3
 URL      : https://cran.r-project.org/src/contrib/fts_0.9.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fts_0.9.9.tar.gz
 Summary  : R interface to tslib (a time series library in c++)
