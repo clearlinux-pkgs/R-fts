@@ -4,7 +4,7 @@
 #
 Name     : R-fts
 Version  : 0.9.9
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/fts_0.9.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fts_0.9.9.tar.gz
 Summary  : R interface to tslib (a time series library in c++)
@@ -32,12 +32,15 @@ lib components for the R-fts package.
 %setup -q -c -n fts
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489774906
+export SOURCE_DATE_EPOCH=1492797208
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1489774906
+export SOURCE_DATE_EPOCH=1492797208
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -53,7 +56,7 @@ R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library fts
 
@@ -63,6 +66,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/fts/DESCRIPTION
 /usr/lib64/R/library/fts/INDEX
 /usr/lib64/R/library/fts/Meta/Rd.rds
+/usr/lib64/R/library/fts/Meta/features.rds
 /usr/lib64/R/library/fts/Meta/hsearch.rds
 /usr/lib64/R/library/fts/Meta/links.rds
 /usr/lib64/R/library/fts/Meta/nsInfo.rds
